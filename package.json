@@ -11,6 +11,8 @@
     "prettier:fix": "prettier --write 'src/**/*.ts{,x}'"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.6",
+    "axios": "^1.5.1",
     "react": "latest",
     "react-dom": "latest",
     "next": "latest"
