@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier 'src/**/*.ts{,x}'",
+    "prettier:fix": "prettier --write 'src/**/*.ts{,x}'"
   },
   "dependencies": {
     "react": "latest",
@@ -15,13 +17,20 @@
   },
   "devDependencies": {
     "typescript": "latest",
-    "@types/react": "latest",
     "@types/node": "latest",
+    "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@typescript-eslint/eslint-plugin": "6.7.3",
+    "@typescript-eslint/parser": "6.7.3",
     "autoprefixer": "latest",
-    "postcss": "latest",
+    "eslint": "8.50.0",
+    "eslint-config-next": "latest",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
     "tailwindcss": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest"
+    "postcss": "latest",
+    "prettier": "3.0.3"
   }
 }
