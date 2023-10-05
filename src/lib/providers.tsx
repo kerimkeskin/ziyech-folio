@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-
 import {SessionProvider} from 'next-auth/react';
+import {ToastContainer} from 'react-toastify';
 
 interface IProps {
   children: React.ReactNode;
@@ -11,7 +11,12 @@ interface IProps {
 const Providers = (props: IProps) => {
   const {children} = props;
 
-  return <SessionProvider>{children}</SessionProvider>;
+  return (
+    <SessionProvider>
+      <ToastContainer autoClose={3000} />
+      {children}
+    </SessionProvider>
+  );
 };
 
 export default Providers;
