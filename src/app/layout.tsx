@@ -3,6 +3,8 @@ import Providers from '@/lib/providers';
 import {Inter} from 'next/font/google';
 import {getServerSession} from 'next-auth';
 import {authOptions} from '@/lib/auth';
+import DashboardLayout from '@/components/layouts/dashboard-layout';
+import AuthLayout from '@/components/layouts/auth-layout';
 import '../styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,7 +21,9 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Providers session={session}>{children}</Providers>
+        <Providers session={session}>
+          {session?.user ? <DashboardLayout>{children}</DashboardLayout> : <AuthLayout>{children}</AuthLayout>}
+        </Providers>
       </body>
     </html>
   );
