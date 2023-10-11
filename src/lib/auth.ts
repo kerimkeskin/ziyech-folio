@@ -1,5 +1,6 @@
 import GoogleProvider from 'next-auth/providers/google';
-import type {NextAuthOptions} from 'next-auth';
+import {getServerSession, type NextAuthOptions} from 'next-auth';
+import {GetServerSidePropsContext, NextApiRequest, NextApiResponse} from 'next';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -12,3 +13,9 @@ export const authOptions: NextAuthOptions = {
     signIn: '/login',
   },
 };
+
+export function useGetServerSession(
+  ...args: [GetServerSidePropsContext['req'], GetServerSidePropsContext['res']] | [NextApiRequest, NextApiResponse] | []
+) {
+  return getServerSession(...args, authOptions);
+}

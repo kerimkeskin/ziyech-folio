@@ -1,7 +1,6 @@
 import type {Metadata} from 'next';
 import Providers from '@/lib/providers';
-import {getServerSession} from 'next-auth';
-import {authOptions} from '@/lib/auth';
+import {useGetServerSession} from '@/lib/auth';
 import DashboardLayout from '@/components/layouts/dashboard-layout';
 import AuthLayout from '@/components/layouts/auth-layout';
 import {nexa} from '@/styles/font';
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {
-  const session = await getServerSession(authOptions);
+  const session = await useGetServerSession();
 
   return (
     <html lang='en'>
