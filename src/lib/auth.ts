@@ -2,7 +2,8 @@ import GoogleProvider from 'next-auth/providers/google';
 import {getServerSession, type NextAuthOptions} from 'next-auth';
 import {GetServerSidePropsContext, NextApiRequest, NextApiResponse} from 'next';
 
-export const authOptions: NextAuthOptions = {
+export const authOptions = {
+  secret: process.env.NEXTAUTH_SECRET ?? '',
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
@@ -12,7 +13,7 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: '/login',
   },
-};
+} satisfies NextAuthOptions;
 
 export function useGetServerSession(
   ...args: [GetServerSidePropsContext['req'], GetServerSidePropsContext['res']] | [NextApiRequest, NextApiResponse] | []
