@@ -1,16 +1,25 @@
+import AuthLayout from '@/components/layouts/auth-layout';
+import {useGetServerSession} from '@/lib/auth';
 import {Metadata} from 'next';
-import {ReactNode} from 'react';
+import {redirect} from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Login | Ziyech-Folio',
 };
 
 interface IProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-const LoginLayout = ({children}: IProps) => {
-  return <div className='flex min-h-screen flex-col'>{children}</div>;
+const LoginLayout = async ({children}: IProps) => {
+  const session = await useGetServerSession();
+
+  if (session) {
+    redirect('/dashboard');
+    return;
+  }
+
+  return <AuthLayout>{children}</AuthLayout>;
 };
 
 export default LoginLayout;

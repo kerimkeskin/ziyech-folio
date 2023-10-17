@@ -4,7 +4,7 @@ import {LeftSidebar, RightSidebar} from './sidebar';
 interface IProps {
   children: React.ReactNode;
 }
-const DashboardLayout = (props: IProps) => {
+const MainLayout = (props: IProps) => {
   const {children} = props;
 
   return (
@@ -16,4 +16,4 @@ const DashboardLayout = (props: IProps) => {
   );
 };
 
-export default DashboardLayout;
+export default MainLayout;
