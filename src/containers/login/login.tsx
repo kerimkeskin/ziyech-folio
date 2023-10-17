@@ -4,7 +4,7 @@ import SignInButton from './components/signin-button';
 
 const LoginPage = () => {
   return (
-    <div className='flex h-screen'>
+    <>
       <div className='hidden flex-col bg-white md:flex md:w-3/5'>
         <div className='mt-16 flex max-w-full flex-col overflow-hidden p-16'>
           <div className='mb-16 flex flex-col items-center'>
@@ -18,12 +18,12 @@ const LoginPage = () => {
           <TradeIcon />
           <LogoPurple width={180} className='mt-12' />
         </div>
-        <div className='mt-16 flex w-full flex-col gap-10 px-12'>
+        <div className='mt-16 flex w-full flex-col items-center gap-10 px-12'>
           <span className='flex flex-col text-center text-4xl font-bold md:text-5xl'>Log in</span>
           <SignInButton className='mt-8' />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
