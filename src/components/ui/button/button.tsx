@@ -38,6 +38,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({className, var
   const Comp = asChild ? Slot : 'button';
   return <Comp className={cn(buttonVariants({variant, size, className}))} ref={ref} {...props} />;
 });
-Button.displayName = 'Button';
 
-export {Button, buttonVariants};
+const IconButton = React.forwardRef<HTMLButtonElement, ButtonProps>(({className, asChild = false, ...props}, ref) => {
+  const Comp = asChild ? Slot : 'button';
+  return (
+    <Comp
+      className={cn(
+        'flex items-center justify-center rounded-full p-2 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200',
+        className,
+      )}
+      ref={ref}
+      {...props}
+    />
+  );
+});
+
+Button.displayName = 'Button';
+IconButton.displayName = 'IconButton';
+
+export {Button, IconButton, buttonVariants};
