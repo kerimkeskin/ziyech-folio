@@ -16,14 +16,14 @@ const SignInButton = (props: IProps) => {
 
   const handleSignIn = React.useCallback(() => {
     try {
-      signIn('google');
+      signIn('google', {callbackUrl: '/dashboard'});
     } catch (err: any) {
       toast.error(err);
     }
   }, []);
 
   return (
-    <Button variant='outline' size='lg' className={cn('w-full', className)} onClick={handleSignIn} {...other}>
+    <Button variant='outline' size='lg' className={cn('flex w-full max-w-sm ', className)} onClick={handleSignIn} {...other}>
       <GoogleIcon width={15} height={15} /> <span className='ml-4'>Continue with Google</span>
     </Button>
   );
